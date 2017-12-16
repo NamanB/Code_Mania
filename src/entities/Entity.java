@@ -5,7 +5,7 @@ import java.awt.Image;
 import main.SpriteSheetLoader;
 
 public class Entity {
-	protected double absX, absY;
+	protected double x, y;
 	protected double velX, velY;
 	protected transient Image[] texture;
 	private int currentTexture;
