@@ -14,7 +14,7 @@ import player.Player;
 
 public class Tile {
 
-	public static final int TILE_SIZE = 200; // 1600
+	public static final int TILE_SIZE = 100; // 1600
 
 	// public static final double TILE_SIZE = 100;
 	
@@ -22,7 +22,7 @@ public class Tile {
 	
 	public Tile(int x, int y) {
 		this.x = x;
-		this.y= y;
+		this.y = y;
 	}
 
 	public void draw(GameWindow w, Graphics2D g, Player player) {
@@ -31,6 +31,6 @@ public class Tile {
 		
 //		 g.drawImage(Biome.getBiome(boardX, boardY).getSurfaceTexture(), 0, 0,
 //		 1600, 1600, null); // magic number
-		 g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+		 g.fillRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
 	}
 }
