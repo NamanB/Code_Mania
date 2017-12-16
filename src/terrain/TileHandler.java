@@ -29,7 +29,7 @@ public class TileHandler {
 
 	private static ArrayList<Tile> tiles;
 
-	public TileHandler(double seed) {
+	public TileHandler() {
 		tiles = new ArrayList<Tile>();
 		
 		for (int i = 0; i < GRID_SIZE; i++) {

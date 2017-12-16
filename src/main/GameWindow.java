@@ -10,6 +10,9 @@ import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import player.Player;
+import terrain.TileHandler;
+
 public class GameWindow extends JPanel {
 
 	/*
@@ -28,7 +31,12 @@ public class GameWindow extends JPanel {
 	public static double rotation = 0;
 
 	public static int Tab = 0;
+	
+	public static Player player;		//TODO implement player initalization later
+	
 
+	public static TileHandler tileHandler;
+	
 	public static KeyHandler keyHandler;
 
 	// TODO
@@ -77,6 +85,7 @@ public class GameWindow extends JPanel {
 
 			// update and render entities
 
+			tileHandler.renderAll(this, g2d, player);
 			g2d.drawString(10 + "  " + 10, 10, 10);
 
 			mouse = MouseInfo.getPointerInfo().getLocation();
