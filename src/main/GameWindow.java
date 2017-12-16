@@ -34,11 +34,10 @@ public class GameWindow extends JPanel {
 	
 	public static Player player;		//TODO implement player initalization later
 	
+	public static KeyHandler keyHandler;
 
 	public static TileHandler tileHandler;
 	
-	public static KeyHandler keyHandler;
-
 	// TODO
 	/*
 	 * add width to all entities make tiles render with graphics give rat actual
@@ -56,6 +55,8 @@ public class GameWindow extends JPanel {
 
 		keyHandler = new KeyHandler();
 		frame.addKeyListener(keyHandler);
+		
+		tileHandler = new TileHandler();
 
 		long t = System.currentTimeMillis();
 		long dt = 0;
@@ -74,12 +75,10 @@ public class GameWindow extends JPanel {
 		Graphics2D g2d = (Graphics2D) g;
 		super.paintComponent(g2d);
 
-		g2d.setColor(Color.white);
-		g2d.fillRect(0, 0, (int) GameWindow.WIDTH, (int) GameWindow.HEIGHT);
+		//g2d.setColor(Color.white);
+		
 
-		g2d.setColor(Color.red);
-
-		if (Tab == 0) { // in game
+//		if (Tab == 0) { // in game
 
 			// only update, do spawn, and render when in game
 
@@ -88,26 +87,19 @@ public class GameWindow extends JPanel {
 			tileHandler.renderAll(this, g2d, player);
 			g2d.drawString(10 + "  " + 10, 10, 10);
 
-			mouse = MouseInfo.getPointerInfo().getLocation();
-
-			if (mouse != null) {
-				rotation = mouse.getX() / 100d;
-			} else {
-				rotation = 0;
-			}
-			rotation = rotation % (Math.PI * 2);
-
-			if (keyHandler.getKeyPressed(0)) {
-				// player.move(rotation);
-			}
-			//player.inventory.renderHandBar(this, g2d);
-		}
-		if (keyHandler.getKeyPressed(4)) { // inventory
-			Tab = 1;
-			// player.inventory.render(this, g2d);
-		} else {
-			Tab = 0;
-		}
+//			mouse = MouseInfo.getPointerInfo().getLocation();
+//
+//			if (keyHandler.getKeyPressed(0)) {
+//				// player.move(rotation);
+//			}
+//			//player.inventory.renderHandBar(this, g2d);
+//		}
+//		if (keyHandler.getKeyPressed(4)) { // inventory
+//			Tab = 1;
+//			// player.inventory.render(this, g2d);
+//		} else {
+//			Tab = 0;
+//		}
 	}
 
 	public GameWindow() {

@@ -21,9 +21,9 @@ public class Entity {
 	protected boolean collides;
 	
 	
-	public Entity(double X, double Y, int[] x, int[] y) {
-		this.absX = X;
-		this.absY = Y;
+	public Entity(double x, double y, int[] x, int[] y) {
+		this.x = x;
+		this.y = y;
 		textureX = x;
 		textureY = y;
 		texture = new Image[x.length];
