@@ -10,6 +10,7 @@ import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import entities.EntityHandler;
 import player.Player;
 import terrain.TileHandler;
 
@@ -35,6 +36,7 @@ public class GameWindow extends JPanel {
 	public static Player player;		//TODO implement player initalization later
 	
 	public static KeyHandler keyHandler;
+	public static EntityHandler entityHandler;
 
 	public static TileHandler tileHandler;
 	
@@ -57,6 +59,7 @@ public class GameWindow extends JPanel {
 		frame.addKeyListener(keyHandler);
 		
 		tileHandler = new TileHandler();
+		entityHandler = new EntityHandler();
 
 		long t = System.currentTimeMillis();
 		long dt = 0;
@@ -65,6 +68,7 @@ public class GameWindow extends JPanel {
 			frame.repaint();
 			if (dt > 20) {
 				// update entities
+				entityHandler.tickAll(player);
 				t = System.currentTimeMillis();
 			}
 
@@ -85,6 +89,7 @@ public class GameWindow extends JPanel {
 			// update and render entities
 
 			tileHandler.renderAll(this, g2d, player);
+			entityHandler.renderAll(this, g2d, player);
 			g2d.drawString(10 + "  " + 10, 10, 10);
 
 //			mouse = MouseInfo.getPointerInfo().getLocation();
