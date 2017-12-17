@@ -9,7 +9,6 @@ import java.util.Random;
 
 import entities.Entity;
 import main.GameWindow;
-import main.KeyHandler;
 import player.Player;
 
 public class Tile {

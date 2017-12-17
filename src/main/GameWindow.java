@@ -35,7 +35,7 @@ public class GameWindow extends JPanel {
 	
 	public static Player player;		//TODO implement player initalization later
 	
-	public static KeyHandler keyHandler;
+	public static InputHandler inputHandler;
 	public static EntityHandler entityHandler;
 
 	public static TileHandler tileHandler;
@@ -57,8 +57,8 @@ public class GameWindow extends JPanel {
 		frame.setSize((int) WIDTH, (int) HEIGHT);
 		frame.setVisible(true);
 
-		keyHandler = new KeyHandler();
-		frame.addKeyListener(keyHandler);
+		inputHandler = new InputHandler();
+		frame.addKeyListener(inputHandler);
 		
 		tileHandler = new TileHandler();
 		
