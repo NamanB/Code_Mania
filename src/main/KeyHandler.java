@@ -8,14 +8,11 @@ public class KeyHandler implements KeyListener {
 
 	public KeyHandler() {
 		super();
-		keys = new Boolean[7];
+		keys = new Boolean[4];
 		keys[0] = false; // move forward w
 		keys[1] = false; // move left a
 		keys[2] = false; // move back s
 		keys[3] = false; // move right d
-		keys[4] = false; // inventory e
-		keys[5] = false; // interact " "
-		keys[6] = false; // off hand / special / spell / misc r
 	}
 
 	public boolean getKeyPressed(int i) {
@@ -27,8 +24,14 @@ public class KeyHandler implements KeyListener {
 		if (k.getKeyCode() == KeyEvent.VK_W) {
 			keys[0] = true;
 		}
-		if (k.getKeyCode() == KeyEvent.VK_E) {
-			keys[4] = !keys[4];
+		if (k.getKeyCode() == KeyEvent.VK_A) {
+			keys[1] = true;
+		}
+		if (k.getKeyCode() == KeyEvent.VK_S) {
+			keys[2] = true;
+		}
+		if (k.getKeyCode() == KeyEvent.VK_D) {
+			keys[3] = true;
 		}
 	}
 
@@ -36,6 +39,15 @@ public class KeyHandler implements KeyListener {
 	public void keyReleased(KeyEvent k) {
 		if (k.getKeyCode() == KeyEvent.VK_W) {
 			keys[0] = false;
+		}
+		if (k.getKeyCode() == KeyEvent.VK_A) {
+			keys[1] = false;
+		}
+		if (k.getKeyCode() == KeyEvent.VK_S) {
+			keys[2] = false;
+		}
+		if (k.getKeyCode() == KeyEvent.VK_D) {
+			keys[3] = false;
 		}
 	}
 
