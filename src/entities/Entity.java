@@ -21,12 +21,12 @@ public class Entity {
 	protected boolean collides;
 	
 	
-	public Entity(double x, double y, int[] x, int[] y) {
+	public Entity(double x, double y, int[] xTexture, int[] yTexture) {
 		this.x = x;
 		this.y = y;
-		textureX = x;
-		textureY = y;
-		texture = new Image[x.length];
+		textureX = xTexture;
+		textureY = yTexture;
+		texture = new Image[xTexture.length];
 		updateTexture();
 	}
 	
