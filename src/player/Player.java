@@ -11,7 +11,7 @@ public class Player extends Entity {
 	private static final int WIDTH = 40;
 	private static final int HEIGHT = 40;
 
-	public Player(double X, double Y, int[] x2, int[] y2) {
+	public Player(double X, double Y) {
 		super(X, Y, new int[]{0}, new int[]{0});
 		this.setHeight(WIDTH);
 		this.setWidth(HEIGHT);

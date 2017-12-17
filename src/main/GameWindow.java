@@ -48,6 +48,8 @@ public class GameWindow extends JPanel {
 	 */
 
 	public static void main(String[] args) {
+		SpriteSheetLoader.load();
+		
 
 		JFrame frame = new JFrame("Grim");
 		frame.getContentPane().add(new GameWindow(), BorderLayout.CENTER);
@@ -59,7 +61,10 @@ public class GameWindow extends JPanel {
 		frame.addKeyListener(keyHandler);
 		
 		tileHandler = new TileHandler();
+		
 		entityHandler = new EntityHandler();
+		player = new Player(0,0);
+		entityHandler.addEntity(player);
 
 		long t = System.currentTimeMillis();
 		long dt = 0;
