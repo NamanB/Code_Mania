@@ -30,6 +30,8 @@ public class Tile {
 		
 //		 g.drawImage(Biome.getBiome(boardX, boardY).getSurfaceTexture(), 0, 0,
 //		 1600, 1600, null); // magic number
-		 g.fillRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE);
+		 
+		 //TODO fix casting bc it will mess up player position 
+		 g.fillRect((x-(int)player.getX())*TILE_SIZE, (y-(int)player.getY())*TILE_SIZE, TILE_SIZE, TILE_SIZE);
 	}
 }
