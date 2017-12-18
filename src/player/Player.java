@@ -14,11 +14,11 @@ public class Player extends Entity {
 		super(X, Y, new int[] { 0 }, new int[] { 0 });
 		this.setHeight(WIDTH);
 		this.setWidth(HEIGHT);
+		this.speed = .01;
 		this.type = "player";
 		this.name = "JOE"; // TODO implement player name input
 	}
 
-	
 	public void moveUp() {
 		this.changeY(-this.speed);
 	}
@@ -34,11 +34,13 @@ public class Player extends Entity {
 	public void moveLeft() {
 		this.changeX(-this.speed);
 	}
+	public void center(){
+		
+	}
 
 	// TODO for multiple textures
-	// public void draw(GameWindow w, Graphics2D g, Player player) {
-	// g.drawImage(texture[0], (int) (x - player.getX()), (int) (y +
-	// player.getY()), width, height, null);
-	// }
+	public void draw(GameWindow w, Graphics2D g, Player player) {
+		g.drawImage(texture[0], w.getWidth() / 2, w.getHeight() / 2, width, height, null);
+	}
 
 }

@@ -21,7 +21,7 @@ import player.Player;
 
 public class TileHandler {
 
-	public static final int GRID_SIZE = 50;
+	public static final int GRID_SIZE = 2;
 
 	// will be referred to as action border
 	// area where all tiles are loaded

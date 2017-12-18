@@ -15,7 +15,7 @@ public abstract class Entity {
 	protected int width;
 	protected int height;
 	protected int[] textureX, textureY;
-	protected int speed;
+	protected double speed;
 
 	protected String type;
 	protected String name;
@@ -46,7 +46,7 @@ public abstract class Entity {
 	}
 
 	public void draw(GameWindow w, Graphics2D g, Player player) {
-		g.drawImage(texture[0], (int) (x - player.getX()), (int) (y + player.getY()), width, height, null);
+		g.drawImage(texture[1], (int) (x - player.getX()), (int) (y + player.getY()), width, height, null);
 	}
 
 	public double getX() {
@@ -105,7 +105,7 @@ public abstract class Entity {
 		this.height = height;
 	}
 
-	public int getSpeed() {
+	public double getSpeed() {
 		return speed;
 	}
 
