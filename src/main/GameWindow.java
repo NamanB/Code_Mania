@@ -50,22 +50,28 @@ public class GameWindow extends JPanel {
 	public static void main(String[] args) {
 		SpriteSheetLoader.load();
 		
-
-		JFrame frame = new JFrame("Grim");
+		// create Window
+		JFrame frame = new JFrame("Code Mania");
 		frame.getContentPane().add(new GameWindow(), BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize((int) WIDTH, (int) HEIGHT);
 		frame.setVisible(true);
 
+		// attach input handler
 		inputHandler = new InputHandler();
 		frame.addKeyListener(inputHandler);
 		
+		//initialize tile handler
 		tileHandler = new TileHandler();
 		
+		//initialize entity handler
 		entityHandler = new EntityHandler();
+		//create player
 		player = new Player(0,0);
+		//add player to entity handler
 		entityHandler.addEntity(player);
 
+		//game loop
 		long t = System.currentTimeMillis();
 		long dt = 0;
 		while (true) {
