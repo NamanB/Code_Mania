@@ -93,7 +93,7 @@ public class GameWindow extends JPanel {
 		//g2d.setColor(Color.white);
 		
 
-//		if (Tab == 0) { // in game
+		if (Tab == 0) { // in game
 
 			// only update, do spawn, and render when in game
 
@@ -105,11 +105,20 @@ public class GameWindow extends JPanel {
 
 //			mouse = MouseInfo.getPointerInfo().getLocation();
 //
-//			if (keyHandler.getKeyPressed(0)) {
-//				// player.move(rotation);
-//			}
+			if (inputHandler.up.isPressed()) {
+				player.moveUp();
+			}
+			if (inputHandler.down.isPressed()) {
+				player.moveDown();
+			}
+			if (inputHandler.left.isPressed()) {
+				player.moveLeft();
+			}
+			if (inputHandler.right.isPressed()) {
+				player.moveRight();
+			}
 //			//player.inventory.renderHandBar(this, g2d);
-//		}
+		}
 //		if (keyHandler.getKeyPressed(4)) { // inventory
 //			Tab = 1;
 //			// player.inventory.render(this, g2d);

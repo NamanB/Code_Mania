@@ -56,6 +56,10 @@ public abstract class Entity {
 	public void setX(double x) {
 		this.x = x;
 	}
+	
+	public void changeX(double x) {
+		this.x += x;
+	}
 
 	public double getY() {
 		return y;
@@ -63,6 +67,10 @@ public abstract class Entity {
 
 	public void setY(double y) {
 		this.y = y;
+	}
+	
+	public void changeY(double y) {
+		this.y += y;
 	}
 
 	public double getVelX() {
