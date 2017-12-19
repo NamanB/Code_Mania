@@ -1,1 +1,6 @@
+test001
+repeat=3
+moveUp
+moveRight
+moveUp
 moveUp
