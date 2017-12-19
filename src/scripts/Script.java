@@ -44,8 +44,8 @@ public class Script {
 	public void reload() {
 		// TODO load the same script back in and make updates to the code
 		// TODO inventory needs to keep track of which scripts go where and it
-		// needs to make sure that scripts cant be deleated / added outside of
-		// the actual game. Scripts can only be "deleated" in the game menu or
+		// needs to make sure that scripts can't be deleted / added outside of
+		// the actual game. Scripts can only be "deleted" in the game menu or
 		// in the editor
 	}
 
