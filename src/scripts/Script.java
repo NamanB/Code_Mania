@@ -49,7 +49,11 @@ public class Script {
 		System.out.println(content);			//for test purposes
 	}
 
-	private String readNextLine() {
+	/**
+	 * Reads next line of script and returns it to be run
+	 * @return the next line of the script in String form to be run
+	 */
+	public String readNextLine() {
 		if (currentLine < script.length) {
 			currentLine++;
 			return script[currentLine-1];
