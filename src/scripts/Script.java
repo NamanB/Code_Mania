@@ -8,7 +8,7 @@ public class Script {
 
 	public String name;
 	public String[] script;
-	public int currentLine = 2;
+	public int currentLine = 1;
 	public int runCount = 0;
 	public int maxRuns = 1; // -1 repeat forever
 	public boolean doesRepeat = false;
@@ -31,11 +31,22 @@ public class Script {
 			}
 			doesRepeat = true;
 		}
-		if (this.script[1].indexOf("repeat=forever") != -1){
+		if (this.script[1].indexOf("repeat=forever") != -1) {
 			maxRuns = -1;
 			doesRepeat = true;
 		}
-		
+		if (doesRepeat) {
+			currentLine = 2;
+		}
+
+	}
+
+	public void restart() {
+		currentLine = 1;
+		if (doesRepeat) {
+			currentLine = 2;
+		}
+		runCount = 0;
 	}
 
 	private void readFile(String filePath) {
