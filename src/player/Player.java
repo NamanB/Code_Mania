@@ -25,16 +25,22 @@ public class Player extends Entity {
 	public void runCommand(String name){
 		if(name.equals("moveUp")){
 			this.changeY(-this.speed);
+			return;
 		}
 		if(name.equals("moveDown")){
 			this.changeY(this.speed);
+			return;
 		}
 		if(name.equals("moveRight")){
 			this.changeX(this.speed);
+			return;
 		}
 		if(name.equals("moveLeft")){
 			this.changeX(-this.speed);
+			return;
 		}
+		
+		System.out.println("NOT A COMMAND");
 	}
 	
 
