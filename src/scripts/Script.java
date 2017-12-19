@@ -5,25 +5,25 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Script {
-	
+
 	public String name;
 	public String[] script;
 	public int currentLine = 2;
 	public int runCount = 0;
 	public int maxRuns = 1;
 	public boolean doesRepeat = false;
-	
-//	Script format
-//	name
-//	repeat=forever;repeat=count ignore all spaces in this line
-//	<script>
-	
+
+	// Script format
+	// name
+	// repeat=forever;repeat=count ignore all spaces in this line
+	// <script>
+
 	public Script(String scriptName) {
 		readFile("/Scripts/" + scriptName + ".txt");
 		this.name = this.script[0];
 		this.script[1].replaceAll(" ", "");
 		if (this.script[1].indexOf("repeat=") != -1 && (Integer.parseInt(this.script[1].substring(7)) > 0)) {
-			//get int from string if it exists and save into max runs
+			// get int from string if it exists and save into max runs
 			try {
 				this.maxRuns = Integer.parseInt(this.script[1].substring(7));
 			} catch (NumberFormatException e) {
@@ -41,25 +41,32 @@ public class Script {
 			e.printStackTrace();
 		}
 		script = content.split("\n");
-		
+
 		for (int i = 0; i < script.length; i++) {
 			script[i].trim();
 		}
-		
-		System.out.println(content);			//for test purposes
+
+		System.out.println(content); // for test purposes
 	}
 
 	/**
 	 * Reads next line of script and returns it to be run
-	 * @return the next line of the script in String form to be run
+	 * 
+	 * @return the next line of the script in String form to be run returns
+	 *         empty string when script is over
 	 */
 	public String readNextLine() {
+		String r = "";
 		if (currentLine < script.length) {
+			r = script[currentLine];
 			currentLine++;
-			return script[currentLine-1];
 		}
-		return "Script finished!";
+		if (currentLine == script.length && runCount < maxRuns && doesRepeat) {
+			currentLine = 2;
+			runCount++;
+		}
+
+		return r;
 	}
-	
-	
+
 }
