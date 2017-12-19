@@ -10,7 +10,7 @@ public class Script {
 	public String[] script;
 	public int currentLine = 2;
 	public int runCount = 0;
-	public int maxRuns = 1;
+	public int maxRuns = 1; // -1 repeat forever
 	public boolean doesRepeat = false;
 
 	// Script format
@@ -29,7 +29,13 @@ public class Script {
 			} catch (NumberFormatException e) {
 				System.out.println("invalid repeat count in " + this.name);
 			}
+			doesRepeat = true;
 		}
+		if (this.script[1].indexOf("repeat=forever") != -1){
+			maxRuns = -1;
+			doesRepeat = true;
+		}
+		
 	}
 
 	private void readFile(String filePath) {
@@ -61,7 +67,7 @@ public class Script {
 			r = script[currentLine];
 			currentLine++;
 		}
-		if (currentLine == script.length && runCount < maxRuns && doesRepeat) {
+		if (currentLine == script.length && (runCount < maxRuns || maxRuns == -1) && doesRepeat) {
 			currentLine = 2;
 			runCount++;
 		}
