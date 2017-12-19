@@ -23,30 +23,38 @@ public class Player extends Entity {
 	}
 	
 	public void runCommand(String name){
-		if(name.equals("moveUp")){
-			this.changeY(-this.speed);
-			return;
-		}
-		if(name.equals("moveDown")){
-			this.changeY(this.speed);
-			return;
-		}
-		if(name.equals("moveRight")){
-			this.changeX(this.speed);
-			return;
-		}
-		if(name.equals("moveLeft")){
-			this.changeX(-this.speed);
-			return;
-		}
-		
-		System.out.println("NOT A COMMAND");
+		if(name.equals("moveUp")) 
+			moveUp();
+		else if(name.equals("moveDown"))
+			moveDown();
+		else if(name.equals("moveRight"))
+			moveRight();
+		else if(name.equals("moveLeft"))
+			moveLeft();
+		else
+			System.out.println("NOT A COMMAND");
 	}
 	
 
 	// TODO for multiple textures
 	public void draw(GameWindow w, Graphics2D g, Player player) {
 		g.drawImage(texture[0], w.getWidth() / 2, w.getHeight() / 2, width, height, null);
+	}
+	
+	public void moveUp() {
+		this.changeY(-this.speed);
+	}
+	
+	public void moveDown() {
+		this.changeY(this.speed);
+	}
+	
+	public void moveRight() {
+		this.changeX(this.speed);
+	}
+	
+	public void moveLeft() {
+		this.changeX(-this.speed);
 	}
 
 }
