@@ -113,16 +113,16 @@ public class GameWindow extends JPanel {
 //			mouse = MouseInfo.getPointerInfo().getLocation();
 //
 			if (inputHandler.up.isPressed()) {
-				player.moveUp();
+				player.runCommand("moveUp");
 			}
 			if (inputHandler.down.isPressed()) {
-				player.moveDown();
+				player.runCommand("moveDown");
 			}
 			if (inputHandler.left.isPressed()) {
-				player.moveLeft();
+				player.runCommand("moveLeft");
 			}
 			if (inputHandler.right.isPressed()) {
-				player.moveRight();
+				player.runCommand("moveRight");
 			}
 //			//player.inventory.renderHandBar(this, g2d);
 		}

@@ -1,6 +1,8 @@
 package player;
 
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import entities.Entity;
 import main.GameWindow;
@@ -17,26 +19,24 @@ public class Player extends Entity {
 		this.speed = .01;
 		this.type = "player";
 		this.name = "JOE"; // TODO implement player name input
-	}
 
-	public void moveUp() {
-		this.changeY(-this.speed);
 	}
-
-	public void moveDown() {
-		this.changeY(this.speed);
+	
+	public void runCommand(String name){
+		if(name.equals("moveUp")){
+			this.changeY(-this.speed);
+		}
+		if(name.equals("moveDown")){
+			this.changeY(this.speed);
+		}
+		if(name.equals("moveRight")){
+			this.changeX(this.speed);
+		}
+		if(name.equals("moveLeft")){
+			this.changeX(-this.speed);
+		}
 	}
-
-	public void moveRight() {
-		this.changeX(this.speed);
-	}
-
-	public void moveLeft() {
-		this.changeX(-this.speed);
-	}
-	public void center(){
-		
-	}
+	
 
 	// TODO for multiple textures
 	public void draw(GameWindow w, Graphics2D g, Player player) {
