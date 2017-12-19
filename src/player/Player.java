@@ -22,6 +22,10 @@ public class Player extends Entity {
 
 	}
 	
+	/**
+	 * Runs command for player
+	 * @param name the name of the command
+	 */
 	public void runCommand(String name){
 		if(name.equals("moveUp")) 
 			moveUp();
@@ -35,7 +39,6 @@ public class Player extends Entity {
 			System.out.println("NOT A COMMAND");
 	}
 	
-
 	// TODO for multiple textures
 	public void draw(GameWindow w, Graphics2D g, Player player) {
 		g.drawImage(texture[0], w.getWidth() / 2, w.getHeight() / 2, width, height, null);
